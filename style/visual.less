@@ -1,0 +1,18 @@
+@import (less) "node_modules/powerbi-visuals-utils-formattingutils/lib/index.css";
+@import (less) "node_modules/powerbi-visuals-utils-interactivityutils/lib/index.css";
+@import (less) "node_modules/powerbi-visuals-utils-chartutils/lib/index.css";
+
+@fontFamily: sans-serif;
+
+.legend text {
+    font-family: @fontFamily;
+    pointer-events: none;
+}
+  
+.main-canvas {
+    position: absolute;
+    font-family: @fontFamily;
+    text{
+        text-anchor: middle;
+    }
+}

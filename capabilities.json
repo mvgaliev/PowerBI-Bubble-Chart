@@ -1,0 +1,281 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Bubble Name",
+            "name": "category",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Cluster Name",
+            "name": "grouping",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Value",
+            "name": "measure",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Image",
+            "name": "image",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Hyperlink",
+            "name": "hyperlink",
+            "kind": "Grouping"
+        }
+    ],
+    "objects": {
+        "dataPointColor": {
+            "displayName": "Data colors",
+            "properties": {
+                "fill": {
+                    "displayName": "Fill",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "dataGroupPointColor": {
+            "displayName": "Cluster data colors",
+            "properties": {
+                "fill": {
+                    "displayName": "Fill",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "legendSettings": {
+            "displayName": "Legend",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "name": {
+                    "displayName": "Name",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "position": {
+                    "displayName": "Position",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "Top"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "Bottom"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "Right"
+                            },
+                            {
+                                "value": "3",
+                                "displayName": "Left"
+                            },
+                            {
+                                "value": "5",
+                                "displayName": "Top Center"
+                            },
+                            {
+                                "value": "6",
+                                "displayName": "Bottom Center"
+                            },
+                            {
+                                "value": "7",
+                                "displayName": "Right Center"
+                            },
+                            {
+                                "value": "8",
+                                "displayName": "Left Center"
+                            }
+                        ]
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                }
+            }
+        },
+        "labelSettings": {
+            "displayName": "Label settings",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fill": {
+                    "displayName": "Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "bold": {
+                    "displayName": "Bold text",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "italic": {
+                    "displayName": "Italic text",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "underline": {
+                    "displayName": "Underline text",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+                "hyperlinkFill": {
+                    "displayName": "Hyperlink color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "hyperlinkUnderline": {
+                    "displayName": "Underline hyperlink",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "commonSettings": {
+            "displayName": "Common settings",
+            "properties": {
+                "padding": {
+                    "displayName": "Padding",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "category": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "measure": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "grouping": {
+                        "max": 0
+                    },
+                    "image": {
+                        "max": 1
+                    },
+                    "hyperlink": {
+                        "max": 1
+                    }
+                },
+                {
+                    "category": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "measure": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "grouping": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "image": {
+                        "max": 1
+                    },
+                    "hyperlink": {
+                        "max": 1
+                    }
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "select": [
+                        {
+                            "for": {
+                                "in": "category"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "image"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "hyperlink"
+                            }
+                        }
+                    ],
+                    "dataReductionAlgorithm": {
+                        "top": {}
+                    }
+                },
+                "values": {
+                    "group": {
+                        "by": "grouping",
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "measure"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "supportsHighlight": true
+}
