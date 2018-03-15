@@ -1,5 +1,4 @@
 {
-  "version": "1.0.0",
   "author": {
     "name": "Akvelon Inc",
     "email": "pbisupport@akvelon.com"
@@ -16,7 +15,7 @@
     "displayName": "Bubble Chart by Akvelon",
     "guid": "bubbleChartEEDCDFA388784AEEAB47972BC1626196",
     "visualClassName": "Visual",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Visualize your quantitative data easily with Bubble Chart",
     "supportUrl": "http://akvelon.com/feedback",
     "gitHubUrl": "https://github.com/akvelon/pbicv-bubblechart"

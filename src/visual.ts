@@ -648,7 +648,7 @@ module powerbi.extensibility.visual {
                 },
                 {
                     displayName: this.measureColumnName,
-                    value: groupValue
+                    value: `${groupValue}`
                 },
                 ],
             } as DataPoint;
