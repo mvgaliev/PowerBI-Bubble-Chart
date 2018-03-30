@@ -1,14 +1,28 @@
 'use strict';
 
-const recursivePathToTests = 'test/**/*.ts'
-    , srcRecursivePath = '.tmp/drop/visual.js'
-    , srcCssRecursivePath = '.tmp/drop/visual.css'
-    , srcOriginalRecursivePath = 'src/**/*.ts'
-    , coverageFolder = 'coverage';
+const recursivePathToTests = 'test/**/*.ts',
+    srcRecursivePath = '.tmp/drop/visual.js',
+    srcCssRecursivePath = '.tmp/drop/visual.css',
+    srcOriginalRecursivePath = 'src/**/*.ts',
+    coverageFolder = 'coverage';
+
+const browsers = ['Firefox'];
+
+if (process.env.TRAVIS) {
+    browsers.push('ChromeTravisCI');
+} else {
+    browsers.push('Chrome', 'Edge');
+}
 
 module.exports = (config) => {
     config.set({
-        browsers: ['Firefox','Chrome','Edge'],
+        browsers,
+        customLaunchers: {
+            ChromeTravisCI: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
         colors: true,
         frameworks: ['jasmine'],
         reporters: [
@@ -50,9 +64,12 @@ module.exports = (config) => {
         },
         coverageReporter: {
             dir: coverageFolder,
-            reporters: [
-                { type: 'html' },
-                { type: 'lcov' }
+            reporters: [{
+                    type: 'html'
+                },
+                {
+                    type: 'lcov'
+                }
             ]
         },
         remapIstanbulReporter: {

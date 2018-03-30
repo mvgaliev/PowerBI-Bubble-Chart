@@ -1,4 +1,6 @@
 # Bubble Chart by Akvelon
+[![Build Status](https://travis-ci.org/akvelon/PowerBI-Bubble-Chart.svg?branch=master)](https://travis-ci.org/akvelon/PowerBI-Bubble-Chart)
+[![Coverage Status](https://coveralls.io/repos/github/akvelon/PowerBI-Bubble-Chart/badge.svg?branch=master)](https://coveralls.io/github/akvelon/PowerBI-Bubble-Chart?branch=master)
 
 > Visualize your quantitative data easily with Bubble Chart by Akvelon
 
