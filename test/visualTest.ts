@@ -56,6 +56,20 @@ module powerbi.extensibility.visual.test {
                 }, 500);
             });
 
+            it("render empty categories", (done) => {
+                dataView = new BubbleChartData().getDataView([
+                    BubbleChartData.ColumnCategory
+                ]);
+
+                visualBuilder.updateRenderTimeout(dataView, () => {
+                    dataView.categorical.categories[0].values = [];
+                    visualBuilder.updateRenderTimeout(dataView, () => {
+                        checkCategoriesCount();
+                        done();
+                    }, 500);
+                }, 500);
+            });
+
             it("count of bubbles should be equal to categories count when categories and values are set", (done) => {
                 dataView = new BubbleChartData().getDataView([
                     BubbleChartData.ColumnCategory,

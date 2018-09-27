@@ -194,6 +194,10 @@ module powerbi.extensibility.visual {
         }
 
         private scaleBubbles(dataPoints: DataPoint[][], viewport: IViewport): DataPoint[][] {
+            if (!dataPoints[0]) {
+                return [];
+            }
+
             let yMin = Infinity;
             let yMax = -Infinity;
             let xMin = Infinity;
@@ -1027,7 +1031,6 @@ module powerbi.extensibility.visual {
             }
 
             this.getColumnNames(options.dataViews[0]);
-
             this.data = this.convertData(options);
 
             const legendMargins: IViewport = this.renderLegend(this.data, options.viewport);
